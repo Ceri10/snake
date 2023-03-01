@@ -1,3 +1,12 @@
+/**
+
+Esta clase es responsable de dibujar el tablero de juego en el panel de juego.
+
+Contiene métodos para dibujar las celdas, las líneas y los números de fila y columna del tablero.
+
+@author alberto
+@version v1.0
+*/
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -10,6 +19,8 @@ import javax.swing.JPanel;
 //note: board does not change dynamically 
 //note: board shape and window aesthetics to be set
 //note: unification of colors not done
+
+
 public class BoardDrawing extends JPanel {
 
     /**
@@ -19,23 +30,25 @@ public class BoardDrawing extends JPanel {
     int row = 8;
     int col = 8;
     ArrayList<Rectangle> cells;
-    //int player;
+
     int[] cellnos;
 
     BoardScreen bs;
-    //ArrayList<Portal> portals;
-    //ArrayList<Player> players;
+   
 
+/**
+ * 
+ * @param row fila
+ * @param col columna
+ * @param bs  boardscreen
+ */
     public BoardDrawing(int row, int col, BoardScreen bs) {
         this.bs = bs;
 
         this.row = row;
         this.col = col;
-        //player = 0;
-        //bs.players = new ArrayList<Player>();
-        //for(int i = 1;i <= bs.returnMaxPlayers();i++)
-        //    bs.players.add(new Player(i));
-        //get and add player(s) names
+        
+        
 
         cells = new ArrayList<Rectangle>();
 
@@ -64,22 +77,16 @@ public class BoardDrawing extends JPanel {
         }
 
     }
-
+/**
+ * 
+ * @param g Graphics
+ * return void 
+ */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;//.create();
 
-        /*
-		int sw = getSize().width;
-		int sh = getSize().height;
-		int a = (int) (0.75*((sw > sh)?sh:sw));
-		
-		//Point start = new Point(0,0);
-		//Point end = new Point(100,100);
-		
-		g.drawLine(0,0,sw, sh);
-         */
-        //Create cells
+       
         int width = getWidth();
         int height = getHeight();
 
@@ -188,6 +195,11 @@ public class BoardDrawing extends JPanel {
 		}
 	}
      */
+   /**
+    * ensurePlayerPosition Este es el método ensurePlayerPosition
+    * @param pnos
+    * @return 
+    */
     public String ensurePlayerPosition(int pnos) {
         String message = "";
         for (Portal port : bs.portals) {
@@ -207,6 +219,11 @@ public class BoardDrawing extends JPanel {
 	public void setPlayer(int a){
 		player = a;
 	}
+     */
+    /**
+     * Método setPlayer
+     * @param a int
+     * @param pnos int
      */
     public void setPlayer(int a, int pnos) {
         bs.players.get(pnos).incPosition(a);
